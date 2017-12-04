@@ -1,11 +1,10 @@
-package BankOpertionCommand.Entitie;
+package Trash.Entitie;
 
 import BankOpertionCommand.Command.Interface.BankOperation;
 
 public class Account implements BankOperation {
 
     Double ammount = 100.00;
-
 
     @Override
     public void transfer() {

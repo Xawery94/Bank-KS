@@ -3,7 +3,7 @@ import BankOpertionCommand.Command.*;
 import BankOpertionCommand.Decorator.BasicBankAccount;
 import BankOpertionCommand.Decorator.DebitAccount;
 import BankOpertionCommand.Decorator.BankAccount;
-import BankOpertionCommand.Entitie.Account;
+import Trash.Entitie.Account;
 import BankOpertionCommand.Command.Interface.BankOperation;
 import BankOpertionCommand.State.Interest;
 import Trash.VisitorExample.Liquor;
@@ -31,11 +31,21 @@ public class Main {
         System.out.println("This is: " + debitAccount.getDescription());
 
 
+        //TODO Command
+        Deposit depositCommand = new Deposit(basicAccount);
+        BankExecutor makePayment = new BankExecutor(depositCommand);
+        makePayment.makeOperation();
+
+        OpenDebit openDebitCommand = new OpenDebit(debitAccount);
+        BankExecutor openDebit = new BankExecutor(openDebitCommand);
+        openDebit.makeOperation();
+
+
         //TODO Investment
         Interest interest = new Interest(1050, 2);
         interest.calculateInterest();
 
-
+/*
         //TODO Command
         BankOperation account = new Account();
 
@@ -43,9 +53,9 @@ public class Main {
         BankExecutor makeWithdraw = new BankExecutor(withdrawCommand);
         makeWithdraw.makeOperation();
 
-        Deposit depositCommand = new Deposit(account);
-        BankExecutor makePayment = new BankExecutor(depositCommand);
-        makePayment.makeOperation();
+        Deposit depositCommand2 = new Deposit(account);
+        BankExecutor makePayment2 = new BankExecutor(depositCommand2);
+        makePayment2.makeOperation();
 
         Transfer transferCommand = new Transfer(account);
         BankExecutor makeTransfer = new BankExecutor(transferCommand);
@@ -55,9 +65,9 @@ public class Main {
         BankExecutor closeBankAccount = new BankExecutor(closeAccountCommand);
         closeBankAccount.makeOperation();
 
-        OpenDebit openDebitCommand = new OpenDebit(account);
-        BankExecutor openDebit = new BankExecutor(openDebitCommand);
-        openDebit.makeOperation();
-
+        OpenDebit openDebitCommand2 = new OpenDebit(account);
+        BankExecutor openDebit2 = new BankExecutor(openDebitCommand2);
+        openDebit2.makeOperation();
+*/
     }
 }
