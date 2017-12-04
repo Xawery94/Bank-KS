@@ -1,16 +1,11 @@
 import BankOpertionCommand.BankExecutor;
 import BankOpertionCommand.Command.*;
 import BankOpertionCommand.Decorator.BasicBankAccount;
-import BankOpertionCommand.Decorator.BasicBankAccount1;
 import BankOpertionCommand.Decorator.DebitAccount;
 import BankOpertionCommand.Decorator.BankAccount;
 import BankOpertionCommand.Entitie.Account;
 import BankOpertionCommand.Interface.BankOperation;
 import BankOpertionCommand.State.Interest;
-import Trash.PizzaDecorator.Mozzarella;
-import Trash.PizzaDecorator.Pizza;
-import Trash.PizzaDecorator.PlainPizza;
-import Trash.PizzaDecorator.TomatoSauce;
 import Trash.VisitorExample.Liquor;
 import Trash.VisitorExample.TaxVisitor;
 import Trash.VisitorExample.Tobacco;

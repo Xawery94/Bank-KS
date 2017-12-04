@@ -15,7 +15,6 @@ public class BasicBankAccount implements BankAccount {
         this.balance = balance;
     }
 
-
     @Override
     public String getDescription() {
         return "Basic Bank Account";
