@@ -1,6 +1,6 @@
 package BankOpertionCommand.Entitie;
 
-import BankOpertionCommand.Interface.BankOperation;
+import BankOpertionCommand.Command.Interface.BankOperation;
 
 public class Account implements BankOperation {
 

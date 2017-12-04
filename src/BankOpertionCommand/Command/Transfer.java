@@ -1,7 +1,7 @@
 package BankOpertionCommand.Command;
 
-import BankOpertionCommand.Interface.BankCommand;
-import BankOpertionCommand.Interface.BankOperation;
+import BankOpertionCommand.Command.Interface.BankCommand;
+import BankOpertionCommand.Command.Interface.BankOperation;
 
 public class Transfer implements BankCommand {
 

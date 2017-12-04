@@ -1,10 +1,10 @@
-import BankOpertionCommand.BankExecutor;
+import BankOpertionCommand.Command.BankExecutor;
 import BankOpertionCommand.Command.*;
 import BankOpertionCommand.Decorator.BasicBankAccount;
 import BankOpertionCommand.Decorator.DebitAccount;
 import BankOpertionCommand.Decorator.BankAccount;
 import BankOpertionCommand.Entitie.Account;
-import BankOpertionCommand.Interface.BankOperation;
+import BankOpertionCommand.Command.Interface.BankOperation;
 import BankOpertionCommand.State.Interest;
 import Trash.VisitorExample.Liquor;
 import Trash.VisitorExample.TaxVisitor;

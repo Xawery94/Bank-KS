@@ -1,6 +1,6 @@
-package BankOpertionCommand;
+package BankOpertionCommand.Command;
 
-import BankOpertionCommand.Interface.BankCommand;
+import BankOpertionCommand.Command.Interface.BankCommand;
 
 public class BankExecutor {
 
