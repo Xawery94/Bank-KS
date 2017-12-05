@@ -1,11 +1,16 @@
-package BankOpertionCommand.Entitie;
+package BankOpertionCommand.Decorator;
 
-import BankOpertionCommand.Interface.BankOperation;
+public class DebitAccount extends BankAccountDecorator {
 
-public class Account implements BankOperation {
+    double ammount = 155.00;
 
-    Double ammount = 100.00;
+    public DebitAccount(BankAccount bankAccount) {
+        super(bankAccount);
+    }
 
+    public String getDescription() {
+        return tempBankAccount.getDescription() + " Plus Debit Account";
+    }
 
     @Override
     public void transfer() {
@@ -31,4 +36,5 @@ public class Account implements BankOperation {
     public void openDebit() {
         System.out.println("Otwarto debet na koncie");
     }
+
 }
