@@ -1,4 +1,4 @@
-package BankOpertionCommand.Decorator;
+package Bank.Decorator;
 
 abstract class BankAccountDecorator implements BankAccount {
 

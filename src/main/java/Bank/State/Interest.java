@@ -1,4 +1,4 @@
-package BankOpertionCommand.State;
+package Bank.State;
 
 import java.util.Date;
 

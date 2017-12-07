@@ -1,4 +1,4 @@
-package BankOpertionCommand.Decorator;
+package Bank.Decorator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,22 +23,22 @@ public class DebitAccount extends BankAccountDecorator {
     }
 
     @Override
-    public void withdraw() {
+    public void withdraw(double amount) {
         logger.info("Wypłacono: {}zł", ammount);
     }
 
     @Override
-    public void payment() {
+    public void deposit(double amount) {
         logger.info("Wpłacono: {}zł", ammount);
     }
 
     @Override
-    public void closeAccount() {
+    public void closeAccount(int accountNumber) {
         logger.info("Zamknięto konto");
     }
 
     @Override
-    public void openDebit() {
+    public void openDebit(int accountNumber) {
         logger.info("Otwarto debet na koncie");
     }
 

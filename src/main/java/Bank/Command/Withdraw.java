@@ -1,7 +1,8 @@
-package BankOpertionCommand.Command;
+package Bank.Command;
 
-import BankOpertionCommand.Command.Interface.BankOperation;
-import BankOpertionCommand.Command.Interface.BankCommand;
+
+import Bank.Command.Interface.BankCommand;
+import Bank.Command.Interface.BankOperation;
 
 public class Withdraw implements BankCommand {
 
@@ -13,6 +14,6 @@ public class Withdraw implements BankCommand {
 
     @Override
     public void execute() {
-        bankOperation.withdraw();
+      //  bankOperation.withdraw();
     }
 }

@@ -1,4 +1,4 @@
-package BankOpertionCommand.State;
+package Bank.State;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

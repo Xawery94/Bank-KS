@@ -1,11 +1,9 @@
-import BankOpertionCommand.Command.BankExecutor;
-import BankOpertionCommand.Command.*;
-import BankOpertionCommand.Decorator.BasicBankAccount;
-import BankOpertionCommand.Decorator.DebitAccount;
-import BankOpertionCommand.Decorator.BankAccount;
-import Trash.Entitie.Account;
-import BankOpertionCommand.Command.Interface.BankOperation;
-import BankOpertionCommand.State.Interest;
+import Bank.Command.*;
+import Bank.Command.Interface.BankOperation;
+import Bank.Decorator.BankAccount;
+import Bank.Decorator.BasicBankAccount;
+import Bank.Decorator.DebitAccount;
+import Bank.State.Interest;
 import Trash.VisitorExample.Liquor;
 import Trash.VisitorExample.TaxVisitor;
 import Trash.VisitorExample.Tobacco;
@@ -24,7 +22,7 @@ public class Main {
         System.out.println(whisky.accept(calcTax));
         System.out.println(cigars.accept(calcTax));
 
-
+/*
         //TODO Debit Account
         BankAccount basicAccount = new BasicBankAccount(1,1234,1000.00);
         BankAccount debitAccount = new DebitAccount(new BasicBankAccount(2,4321,2000.00));
@@ -41,14 +39,15 @@ public class Main {
         OpenDebit openDebitCommand = new OpenDebit(debitAccount);
         BankExecutor openDebit = new BankExecutor(openDebitCommand);
         openDebit.makeOperation();
-
+*/
         //TODO Investment
         Interest interest = new Interest(1050, 2);
         interest.calculateInterest();
 
 
         //TODO Command
-        BankOperation account = new Account();
+        BankOperation account = new BasicBankAccount("aa",100);
+        BasicBankAccount basicBankAccount = new BasicBankAccount("aa",100);
 
         Withdraw withdrawCommand = new Withdraw(account);
         BankExecutor makeWithdraw = new BankExecutor(withdrawCommand);
@@ -62,7 +61,7 @@ public class Main {
         BankExecutor makeTransfer = new BankExecutor(transferCommand);
         makeTransfer.makeOperation();
 
-        CloseAccount closeAccountCommand = new CloseAccount(account);
+        CloseAccount closeAccountCommand = new CloseAccount(account, 0);
         BankExecutor closeBankAccount = new BankExecutor(closeAccountCommand);
         closeBankAccount.makeOperation();
 

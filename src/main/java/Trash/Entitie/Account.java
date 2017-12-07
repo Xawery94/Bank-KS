@@ -1,9 +1,7 @@
 package Trash.Entitie;
 
-import BankOpertionCommand.Command.Interface.BankOperation;
-
-public class Account implements BankOperation {
-
+public class Account/* implements BankOperation */{
+/*
     Double ammount = 100.00;
 
     @Override
@@ -30,4 +28,6 @@ public class Account implements BankOperation {
     public void openDebit() {
         System.out.println("Otwarto debet na koncie");
     }
+
+  */
 }

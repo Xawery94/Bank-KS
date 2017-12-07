@@ -1,4 +1,4 @@
-package BankOpertionCommand.Command.Interface;
+package Bank.Command.Interface;
 
 public interface BankCommand {
 
