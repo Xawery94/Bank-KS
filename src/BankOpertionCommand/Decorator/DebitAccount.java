@@ -1,6 +1,11 @@
 package BankOpertionCommand.Decorator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class DebitAccount extends BankAccountDecorator {
+
+    private static final Logger logger = LoggerFactory.getLogger(DebitAccount.class);
 
     double ammount = 155.00;
 
@@ -14,27 +19,27 @@ public class DebitAccount extends BankAccountDecorator {
 
     @Override
     public void transfer() {
-        System.out.println("Przelano: "+ ammount + "zł");
+        logger.info("Przelano: {}zł", ammount);
     }
 
     @Override
     public void withdraw() {
-        System.out.println("Wypłacono: "+ ammount + "zł");
+        logger.info("Wypłacono: {}zł", ammount);
     }
 
     @Override
     public void payment() {
-        System.out.println("Wpłacono: "+ ammount + "zł");
+        logger.info("Wpłacono: {}zł", ammount);
     }
 
     @Override
     public void closeAccount() {
-        System.out.println("Zamknięto konto");
+        logger.info("Zamknięto konto");
     }
 
     @Override
     public void openDebit() {
-        System.out.println("Otwarto debet na koncie");
+        logger.info("Otwarto debet na koncie");
     }
 
 }
