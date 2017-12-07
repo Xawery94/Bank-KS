@@ -9,10 +9,12 @@ import BankOpertionCommand.State.Interest;
 import Trash.VisitorExample.Liquor;
 import Trash.VisitorExample.TaxVisitor;
 import Trash.VisitorExample.Tobacco;
+import org.apache.log4j.BasicConfigurator;
 
 public class Main {
 
     public static void main(String[] args) {
+        BasicConfigurator.configure();
 
         //TODO Transaction Visitor
         TaxVisitor calcTax = new TaxVisitor();
@@ -40,12 +42,11 @@ public class Main {
         BankExecutor openDebit = new BankExecutor(openDebitCommand);
         openDebit.makeOperation();
 
-
         //TODO Investment
         Interest interest = new Interest(1050, 2);
         interest.calculateInterest();
 
-/*
+
         //TODO Command
         BankOperation account = new Account();
 
@@ -68,6 +69,6 @@ public class Main {
         OpenDebit openDebitCommand2 = new OpenDebit(account);
         BankExecutor openDebit2 = new BankExecutor(openDebitCommand2);
         openDebit2.makeOperation();
-*/
+
     }
 }

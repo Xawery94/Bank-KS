@@ -1,8 +1,13 @@
 package BankOpertionCommand.Decorator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 
 public class BasicBankAccount implements BankAccount {
+
+    private static final Logger logger = LoggerFactory.getLogger(BasicBankAccount.class);
 
     private int id;
     private int accountNumber;
@@ -24,26 +29,26 @@ public class BasicBankAccount implements BankAccount {
 
     @Override
     public void transfer() {
-        System.out.println("Przelano: "+ ammount + "zł");
+        logger.info("Przelano: {}zł", ammount);
     }
 
     @Override
     public void withdraw() {
-        System.out.println("Wypłacono: "+ ammount + "zł");
+        logger.info("Wypłacono: {}zł", ammount);
     }
 
     @Override
     public void payment() {
-        System.out.println("Wpłacono: "+ ammount + "zł");
+        logger.info("Wpłacono: {}zł", ammount);
     }
 
     @Override
     public void closeAccount() {
-        System.out.println("Zamknięto konto");
+        logger.info("Zamknięto konto");
     }
 
     @Override
     public void openDebit() {
-        System.out.println("Otwarto debet na koncie");
+        logger.info("Otwarto debet na koncie");
     }
 }
