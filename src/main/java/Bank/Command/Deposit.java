@@ -1,7 +1,8 @@
-package BankOpertionCommand.Command;
+package Bank.Command;
 
-import BankOpertionCommand.Command.Interface.BankCommand;
-import BankOpertionCommand.Command.Interface.BankOperation;
+
+import Bank.Command.Interface.BankCommand;
+import Bank.Command.Interface.BankOperation;
 
 public class Deposit implements BankCommand {
 
@@ -13,6 +14,6 @@ public class Deposit implements BankCommand {
 
     @Override
     public void execute() {
-        bankOperation.payment();
+     //   bankOperation.deposit();
     }
 }
