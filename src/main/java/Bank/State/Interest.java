@@ -10,12 +10,12 @@ public class Interest {
     private double balance;
 
     public Interest(double balance, int duration) {
-        this.setBalance(balance);
+        this.setInterest(balance);
         this.startDate = new Date();
         this.duration = duration;
     }
 
-    public void setBalance(double balance) {
+    public void setInterest(double balance) {
         this.balance = balance;
 
         if(balance < 1000){
@@ -26,6 +26,31 @@ public class Interest {
     }
 
     public void calculateInterest() {
-        interestState.calc();
+        interestState.calculate();
     }
+
+    public InterestState getInterestState() {
+        return interestState;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
 }

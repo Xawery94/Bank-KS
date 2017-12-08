@@ -116,4 +116,7 @@ public class BasicBankAccount implements BankAccount {
         return numOfTransactions;
     }
 
+    public double getBalance() {
+        return balance;
+    }
 }
