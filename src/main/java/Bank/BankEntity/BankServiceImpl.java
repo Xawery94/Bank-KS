@@ -1,5 +1,6 @@
 package Bank.BankEntity;
 
+import Bank.Decorator.BankAccount;
 import Bank.Decorator.BasicBankAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,14 +14,24 @@ public class BankServiceImpl implements BankService {
 
     private Bank bank = new Bank();
     private BasicBankAccount[] accounts;
+    private List<BankAccount> accountsList;
     private int numOfAccounts;
 
     @Override
-    public int openNewAccount(String customerName, double openingBalance) {
+    public List<BankAccount> getAccountsList() {
+        return accountsList;
+    }
+
+    @Override
+    public int getNumAccounts() {
+        return numOfAccounts;
+    }
+
+    @Override
+    public void openNewAccount(String customerName, double openingBalance) {
         BasicBankAccount newBankAccount = new BasicBankAccount(customerName, openingBalance);
-        accounts[numOfAccounts] = newBankAccount;
+        accountsList.add(newBankAccount);
         numOfAccounts++;
-        return newBankAccount.getAccountNum();
     }
 
     @Override

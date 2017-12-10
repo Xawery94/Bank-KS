@@ -7,4 +7,6 @@ public interface BankAccount extends BankOperation {
 
     String getDescription();
 
+    double getBalance();
+
 }

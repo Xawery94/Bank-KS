@@ -49,11 +49,11 @@ public class Main {
         BankOperation account = new BasicBankAccount("aa",100);
         BasicBankAccount basicBankAccount = new BasicBankAccount("aa",100);
 
-        Withdraw withdrawCommand = new Withdraw(account);
+        Withdraw withdrawCommand = new Withdraw(account,500);
         BankExecutor makeWithdraw = new BankExecutor(withdrawCommand);
         makeWithdraw.makeOperation();
 
-        Deposit depositCommand2 = new Deposit(account);
+        Deposit depositCommand2 = new Deposit(account,1000);
         BankExecutor makePayment2 = new BankExecutor(depositCommand2);
         makePayment2.makeOperation();
 
