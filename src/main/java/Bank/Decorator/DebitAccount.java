@@ -8,13 +8,24 @@ public class DebitAccount extends BankAccountDecorator {
     private static final Logger logger = LoggerFactory.getLogger(DebitAccount.class);
 
     double ammount = 155.00;
+    double debitLimit = 200;
 
     public DebitAccount(BankAccount bankAccount) {
         super(bankAccount);
+        this.debitLimit = debitLimit;
     }
 
     public String getDescription() {
         return tempBankAccount.getDescription() + " Plus Debit Account";
+    }
+
+    @Override
+    public double getBalance() {
+        return tempBankAccount.getBalance() + 200;
+    }
+
+    public double getDebitLimit(){
+        return debitLimit;
     }
 
     @Override

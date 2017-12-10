@@ -1,8 +1,12 @@
 package Bank.BankEntity;
 
+import Bank.Decorator.BankAccount;
+
+import java.util.List;
+
 public interface BankService {
 
-    int openNewAccount(String customerName, double openingBalance);
+    void openNewAccount(String customerName, double openingBalance);
 
     void withdrawFrom(int accountNum, double amount);
 
@@ -15,5 +19,9 @@ public interface BankService {
     void printAccountInfo(int accountNum, int n);
 
     void removeAccount(int number);
+
+    int getNumAccounts();
+
+    List<BankAccount> getAccountsList();
 
 }
