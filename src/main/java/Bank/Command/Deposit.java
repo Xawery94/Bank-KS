@@ -8,12 +8,15 @@ public class Deposit implements BankCommand {
 
     BankOperation bankOperation;
 
-    public Deposit(BankOperation bankOperation) {
+    private double amount;
+
+    public Deposit(BankOperation bankOperation, double amount) {
         this.bankOperation = bankOperation;
+        this.amount= amount;
     }
 
     @Override
     public void execute() {
-     //   bankOperation.deposit();
+        bankOperation.deposit(amount);
     }
 }

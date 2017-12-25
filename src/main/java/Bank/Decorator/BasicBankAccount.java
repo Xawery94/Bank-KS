@@ -39,6 +39,16 @@ public class BasicBankAccount implements BankAccount {
     }
 
     @Override
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Basic Bank Account";
+    }
+
+    @Override
     public void withdraw(double amount) {
         if (amount <= 0) {
             logger.warn("Amount to be withdrawn should be positive");
@@ -53,6 +63,7 @@ public class BasicBankAccount implements BankAccount {
                 numOfTransactions++;
             }
         }
+
         logger.info("Wypłacono: {}zł", ammount);
     }
 
@@ -60,6 +71,7 @@ public class BasicBankAccount implements BankAccount {
     public void deposit(double amount) {
         if (amount <= 0) {
             logger.warn("Amount to be deposited should be positive");
+            throw new MinAmount();
         } else {
             balance = balance + amount;
             transactions[numOfTransactions] = amount;
@@ -74,11 +86,6 @@ public class BasicBankAccount implements BankAccount {
     public void closeAccount(int accountNumber) {
         bankService.removeAccount(accountNumber);
         logger.info("Zamknięto konto o nr: {}", accountNumber);
-    }
-
-    @Override
-    public String getDescription() {
-        return "Basic Bank Account";
     }
 
     @Override
@@ -114,9 +121,5 @@ public class BasicBankAccount implements BankAccount {
 
     public int getNumberOfTransactions() {
         return numOfTransactions;
-    }
-
-    public double getBalance() {
-        return balance;
     }
 }
