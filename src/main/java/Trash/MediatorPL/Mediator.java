@@ -1,4 +1,10 @@
 package Trash.MediatorPL;
 
-public interface Mediator {
+import java.util.ArrayList;
+
+/**
+ * Definicja interfejsu mediatora
+ */
+interface Mediator{
+    void sendMessage(String message);
 }
