@@ -1,26 +1,41 @@
+import Bank.BankEntity.BankService;
+import Bank.BankEntity.BankServiceImpl;
 import Bank.Command.*;
 import Bank.Command.Interface.BankOperation;
 import Bank.Decorator.BankAccount;
 import Bank.Decorator.BasicBankAccount;
 import Bank.Decorator.DebitAccount;
 import Bank.State.Interest;
+import Bank.Visitor.RaportVisitor;
 import Trash.VisitorExample.Liquor;
+import Trash.VisitorExample.TabacoServ;
 import Trash.VisitorExample.TaxVisitor;
 import Trash.VisitorExample.Tobacco;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.apache.log4j.BasicConfigurator;
 
 public class Main {
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-
+/*
         //TODO Transaction Visitor
         TaxVisitor calcTax = new TaxVisitor();
         Liquor whisky = new Liquor(3.50);
-        Tobacco cigars  = new Tobacco(11.99);
+        TabacoServ cigars  = new Tobacco(11.99);
 
         System.out.println(whisky.accept(calcTax));
-        System.out.println(cigars.accept(calcTax));
+      System.out.println(cigars.accept(calcTax));
+*/
+        RaportVisitor raport = new RaportVisitor();
+        BankService bankService = new BankServiceImpl();
+        bankService.openNewAccount("aaa", 10000);
+        bankService.openNewAccount("aaa", 100);
+        bankService.openNewAccount("aaa", 10000);
+        bankService.openNewAccount("aaa", 10000);
+        bankService.openNewAccount("aaa", 10000);
+        System.out.println(bankService.getAccountsList().size());
+        System.out.println(bankService.accept(raport));
 
 /*
         //TODO Debit Account
@@ -39,7 +54,7 @@ public class Main {
         OpenDebit openDebitCommand = new OpenDebit(debitAccount);
         BankExecutor openDebit = new BankExecutor(openDebitCommand);
         openDebit.makeOperation();
-*/
+*//*
         //TODO Investment
         Interest interest = new Interest(1050, 2);
         interest.calculateInterest();
@@ -68,6 +83,6 @@ public class Main {
         OpenDebit openDebitCommand2 = new OpenDebit(account);
         BankExecutor openDebit2 = new BankExecutor(openDebitCommand2);
         openDebit2.makeOperation();
-
+*/
     }
 }

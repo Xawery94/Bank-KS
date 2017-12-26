@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 public class BankServiceImplTest {
 
     @Mock
-    BankService bankService;
+    private BankService bankService;
 
     private BankAccount basicAccount;
     private BankAccount debitAccount;

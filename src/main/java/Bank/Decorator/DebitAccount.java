@@ -7,8 +7,8 @@ public class DebitAccount extends BankAccountDecorator {
 
     private static final Logger logger = LoggerFactory.getLogger(DebitAccount.class);
 
-    double ammount = 155.00;
-    double debitLimit = 200;
+    private double amount = 155.00;
+    private double debitLimit = 200;
 
     public DebitAccount(BankAccount bankAccount) {
         super(bankAccount);
@@ -30,17 +30,17 @@ public class DebitAccount extends BankAccountDecorator {
 
     @Override
     public void transfer() {
-        logger.info("Przelano: {}zł", ammount);
+        logger.info("Przelano: {}zł", amount);
     }
 
     @Override
     public void withdraw(double amount) {
-        logger.info("Wypłacono: {}zł", ammount);
+        logger.info("Wypłacono: {}zł", this.amount);
     }
 
     @Override
     public void deposit(double amount) {
-        logger.info("Wpłacono: {}zł", ammount);
+        logger.info("Wpłacono: {}zł", this.amount);
     }
 
     @Override

@@ -2,20 +2,28 @@ package Bank.BankEntity;
 
 import Bank.Decorator.BankAccount;
 import Bank.Decorator.BasicBankAccount;
+import Bank.Visitor.Visitable;
+import Bank.Visitor.Visitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BankServiceImpl implements BankService {
+public class BankServiceImpl implements BankService, Visitable {
 
     private static final Logger logger = LoggerFactory.getLogger(BankServiceImpl.class);
 
     private Bank bank = new Bank();
     private BasicBankAccount[] accounts;
-    private List<BankAccount> accountsList;
+    private List<BankAccount> accountsList = new ArrayList<>();
     private int numOfAccounts;
+
+    @Override
+    public int accept(Visitor visitor) {
+        return visitor.visit(this);
+    }
 
     @Override
     public List<BankAccount> getAccountsList() {

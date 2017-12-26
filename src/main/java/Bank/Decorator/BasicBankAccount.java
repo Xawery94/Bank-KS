@@ -24,7 +24,7 @@ public class BasicBankAccount implements BankAccount {
     private static int noOfAccounts = 0;
 
     private Random rnd = new Random();
-    double ammount = 100.00;
+    private double ammount = 100.00;
 
     public BasicBankAccount(String newCustomerName, double openingBalance) {
         customerName = newCustomerName;

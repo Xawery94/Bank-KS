@@ -1,6 +1,7 @@
 package Bank.BankEntity;
 
 import Bank.Decorator.BankAccount;
+import Bank.Visitor.Visitor;
 
 import java.util.List;
 
@@ -24,4 +25,5 @@ public interface BankService {
 
     List<BankAccount> getAccountsList();
 
+    int accept(Visitor visitor);
 }

@@ -1,11 +1,9 @@
 package Bank.Visitor;
 
-import Bank.Command.Interface.BankOperation;
-import Bank.Command.Withdraw;
-import Bank.Decorator.BasicBankAccount;
+import Bank.BankEntity.BankService;
 
 public interface Visitor {
-    double visit(BasicBankAccount basicBankAccount);
 
-    //double visit (Withdraw withdraw);
+    int visit(BankService BankService);
+
 }
