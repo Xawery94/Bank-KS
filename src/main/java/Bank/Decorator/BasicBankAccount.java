@@ -2,6 +2,7 @@ package Bank.Decorator;
 
 import Bank.BankEntity.BankService;
 import Bank.BankEntity.BankServiceImpl;
+import Bank.BankMediator.Mediator;
 import Bank.Exception.MinAmount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,6 @@ public class BasicBankAccount implements BankAccount {
 
     BankService bankService = new BankServiceImpl();
 
-    private int accountNumber;
     private double balance;
     private int accountNum;
     private String customerName;
@@ -22,13 +22,15 @@ public class BasicBankAccount implements BankAccount {
     private String[] transactionsSummary;
     private int numOfTransactions;
     private static int noOfAccounts = 0;
+    private Mediator mediator;
 
     private Random rnd = new Random();
     private double ammount = 100.00;
 
-    public BasicBankAccount(String newCustomerName, double openingBalance) {
+    public BasicBankAccount(String newCustomerName, double openingBalance, Mediator mediator) {
         customerName = newCustomerName;
         balance = openingBalance;
+        this.mediator = mediator;
         noOfAccounts++;
         accountNum = noOfAccounts;
         transactions = new double[100];
@@ -41,6 +43,11 @@ public class BasicBankAccount implements BankAccount {
     @Override
     public double getBalance() {
         return balance;
+    }
+
+    @Override
+    public void sendMessage(String message) {
+        System.out.println("Bla bla: "+ message);
     }
 
     @Override
@@ -96,10 +103,6 @@ public class BasicBankAccount implements BankAccount {
     @Override
     public void openDebit(int accountNumber) {
         logger.info("Otwarto debet na koncie");
-    }
-
-    public int getAccountNumber() {
-        return accountNumber;
     }
 
     public String getAccountInfo() {

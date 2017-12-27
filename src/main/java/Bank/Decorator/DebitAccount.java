@@ -24,6 +24,11 @@ public class DebitAccount extends BankAccountDecorator {
         return tempBankAccount.getBalance() + 200;
     }
 
+    @Override
+    public void sendMessage(String message) {
+
+    }
+
     public double getDebitLimit(){
         return debitLimit;
     }

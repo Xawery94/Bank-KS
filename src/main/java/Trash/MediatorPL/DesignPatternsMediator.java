@@ -13,13 +13,12 @@ public class DesignPatternsMediator{
 
         JobWorker job1 = new JobWorker("Bank 1", mediatorHub);
         JobWorker job2 = new JobWorker("Bank 2", mediatorHub);
-        JobWorker job3 = new JobWorker("Job3", mediatorHub);
-        JobWorker job4 = new JobWorker("Job4", mediatorHub);
+        JobWorker job3 = new JobWorker("Bank 3", mediatorHub);
 
         mediatorHub.addJobWorker(job1);
         mediatorHub.addJobWorker(job2);
         mediatorHub.addJobWorker(job3);
-        mediatorHub.addJobWorker(job4);
+        mediatorHub.sendMessage("abra kadabra");
 
         //
         // Wysłanie komunikatu od obiektu1 do wszytkch obiektów roboczych

@@ -1,17 +1,3 @@
-import Bank.BankEntity.BankService;
-import Bank.BankEntity.BankServiceImpl;
-import Bank.Command.*;
-import Bank.Command.Interface.BankOperation;
-import Bank.Decorator.BankAccount;
-import Bank.Decorator.BasicBankAccount;
-import Bank.Decorator.DebitAccount;
-import Bank.State.Interest;
-import Bank.Visitor.RaportVisitor;
-import Trash.VisitorExample.Liquor;
-import Trash.VisitorExample.TabacoServ;
-import Trash.VisitorExample.TaxVisitor;
-import Trash.VisitorExample.Tobacco;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.apache.log4j.BasicConfigurator;
 
 public class Main {
@@ -27,7 +13,7 @@ public class Main {
         System.out.println(whisky.accept(calcTax));
       System.out.println(cigars.accept(calcTax));
 */
-        RaportVisitor raport = new RaportVisitor();
+ /*       RaportVisitor raport = new RaportVisitor();
         BankService bankService = new BankServiceImpl();
         bankService.openNewAccount("aaa", 10000);
         bankService.openNewAccount("aaa", 100);
@@ -36,7 +22,7 @@ public class Main {
         bankService.openNewAccount("aaa", 10000);
         System.out.println(bankService.getAccountsList().size());
         System.out.println(bankService.accept(raport));
-
+*/
 /*
         //TODO Debit Account
         BankAccount basicAccount = new BasicBankAccount(1,1234,1000.00);

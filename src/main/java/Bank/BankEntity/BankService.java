@@ -1,5 +1,6 @@
 package Bank.BankEntity;
 
+import Bank.BankMediator.Mediator;
 import Bank.Decorator.BankAccount;
 import Bank.Visitor.Visitor;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 public interface BankService {
 
-    void openNewAccount(String customerName, double openingBalance);
+    void openNewAccount(String customerName, double openingBalance, Mediator mediator);
 
     void withdrawFrom(int accountNum, double amount);
 
@@ -26,4 +27,6 @@ public interface BankService {
     List<BankAccount> getAccountsList();
 
     int accept(Visitor visitor);
+
+    void transfer();
 }

@@ -9,4 +9,6 @@ public interface BankAccount extends BankOperation {
 
     double getBalance();
 
+    void sendMessage(String message);
+
 }

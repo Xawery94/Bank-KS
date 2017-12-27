@@ -1,5 +1,6 @@
 package Bank.BankEntity;
 
+import Bank.BankMediator.BankHub;
 import Bank.Command.BankExecutor;
 import Bank.Command.Deposit;
 import Bank.Command.Withdraw;
@@ -33,8 +34,9 @@ public class BankServiceImplTest {
 
     @Before
     public void setUp(){
-        basicAccount = new BasicBankAccount("Ala", 1000);
-        debitAccount = new DebitAccount(new BasicBankAccount("Ala2",1000));
+        BankHub bankHub = new BankHub();
+        basicAccount = new BasicBankAccount("Ala", 1000, bankHub);
+        debitAccount = new DebitAccount(new BasicBankAccount("Ala2",1000, bankHub));
 
         bankAccountList.add(basicAccount);
         bankAccountList.add(basicAccount);
@@ -53,9 +55,10 @@ public class BankServiceImplTest {
 
     @Test
     public void checkAccountListNumber(){
-        bankService.openNewAccount("Ala1", 1000);
-        bankService.openNewAccount("Ala2", 2000);
-        bankService.openNewAccount("Ala3", 3000);
+        BankHub bankHub = new BankHub();
+        bankService.openNewAccount("Ala1", 1000, bankHub);
+        bankService.openNewAccount("Ala2", 2000, bankHub);
+        bankService.openNewAccount("Ala3", 3000, bankHub);
 
         when(bankService.getNumAccounts()).thenReturn(3);
 

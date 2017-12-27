@@ -1,6 +1,5 @@
 package Trash.MediatorPL;
 
-import java.util.ArrayList;
 
 /**
  * Definicja interfejsu mediatora

@@ -1,5 +1,6 @@
 package Bank.BankEntity;
 
+import Bank.BankMediator.Mediator;
 import Bank.Decorator.BankAccount;
 import Bank.Decorator.BasicBankAccount;
 import Bank.Visitor.Visitable;
@@ -26,6 +27,11 @@ public class BankServiceImpl implements BankService, Visitable {
     }
 
     @Override
+    public void transfer() {
+        System.out.println("Przelano na konto" + this.numOfAccounts);
+    }
+
+    @Override
     public List<BankAccount> getAccountsList() {
         return accountsList;
     }
@@ -36,8 +42,8 @@ public class BankServiceImpl implements BankService, Visitable {
     }
 
     @Override
-    public void openNewAccount(String customerName, double openingBalance) {
-        BasicBankAccount newBankAccount = new BasicBankAccount(customerName, openingBalance);
+    public void openNewAccount(String customerName, double openingBalance, Mediator mediator) {
+        BasicBankAccount newBankAccount = new BasicBankAccount(customerName, openingBalance, mediator);
         accountsList.add(newBankAccount);
         numOfAccounts++;
     }

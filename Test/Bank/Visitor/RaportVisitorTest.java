@@ -2,6 +2,7 @@ package Bank.Visitor;
 
 import Bank.BankEntity.BankService;
 import Bank.BankEntity.BankServiceImpl;
+import Bank.BankMediator.BankHub;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,12 +20,12 @@ public class RaportVisitorTest {
     @Before
     public void setUp(){
         raport = new RaportVisitor();
-
-        bankService.openNewAccount("aaa", 10000);
-        bankService.openNewAccount("aaa", 100);
-        bankService.openNewAccount("aaa", 10000);
-        bankService.openNewAccount("aaa", 10000);
-        bankService.openNewAccount("aaa", 10000);
+        BankHub bankHub = new BankHub();
+        bankService.openNewAccount("aaa", 10000, bankHub);
+        bankService.openNewAccount("aaa", 100, bankHub);
+        bankService.openNewAccount("aaa", 10000, bankHub);
+        bankService.openNewAccount("aaa", 10000, bankHub);
+        bankService.openNewAccount("aaa", 10000, bankHub);
     }
 
     @Test
