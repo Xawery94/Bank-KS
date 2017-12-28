@@ -19,6 +19,7 @@ public class DesignPatternsMediator{
         mediatorHub.addJobWorker(job2);
         mediatorHub.addJobWorker(job3);
         mediatorHub.sendMessage("abra kadabra");
+        mediatorHub.sendMessage("hello");
 
         //
         // Wysłanie komunikatu od obiektu1 do wszytkch obiektów roboczych

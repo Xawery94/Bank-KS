@@ -16,7 +16,7 @@ public class BankHub implements Mediator{
     public void makeTransfer(String message, int accountNumber){
         for (BankService bank : bankWorkers){
             if(bank.getNumAccounts() == accountNumber){
-                bank.transfer();
+                bank.transfer(1,2, 40);
             }
         }
     }

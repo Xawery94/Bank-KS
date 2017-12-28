@@ -3,6 +3,7 @@ package Bank.BankEntity;
 import Bank.BankMediator.BankHub;
 import Bank.Command.BankExecutor;
 import Bank.Command.Deposit;
+import Bank.Command.Transfer;
 import Bank.Command.Withdraw;
 import Bank.Decorator.BankAccount;
 import Bank.Decorator.BasicBankAccount;
@@ -88,6 +89,15 @@ public class BankServiceImplTest {
         makePayment.makeOperation();
 
         assertThat(basicAccount.getBalance(), equalTo(2000.0));
+    }
+
+    @Test
+    public void shouldTransferToAccountBalance(){
+        Transfer transferCommand = new Transfer(basicAccount,350);
+        BankExecutor makePayment = new BankExecutor(transferCommand);
+        makePayment.makeOperation();
+        // a jak sprawdzić te drugie konto z ktorego przelewamy, powinno miec stan konta =  750.0
+        assertThat(basicAccount.getBalance(), equalTo(1350.0));
     }
 
     @Test(expected = MinAmount.class)

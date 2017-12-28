@@ -28,5 +28,5 @@ public interface BankService {
 
     int accept(Visitor visitor);
 
-    void transfer();
+    void transfer(int accountNum,int accountNumTO, double amount);
 }

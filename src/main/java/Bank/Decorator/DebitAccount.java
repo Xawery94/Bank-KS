@@ -34,7 +34,7 @@ public class DebitAccount extends BankAccountDecorator {
     }
 
     @Override
-    public void transfer() {
+    public void transfer(double amount) {
         logger.info("Przelano: {}zł", amount);
     }
 

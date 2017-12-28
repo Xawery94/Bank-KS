@@ -11,9 +11,9 @@ public class Main {
         TabacoServ cigars  = new Tobacco(11.99);
 
         System.out.println(whisky.accept(calcTax));
-      System.out.println(cigars.accept(calcTax));
+        System.out.println(cigars.accept(calcTax));
 */
- /*       RaportVisitor raport = new RaportVisitor();
+ /*     RaportVisitor raport = new RaportVisitor();
         BankService bankService = new BankServiceImpl();
         bankService.openNewAccount("aaa", 10000);
         bankService.openNewAccount("aaa", 100);
