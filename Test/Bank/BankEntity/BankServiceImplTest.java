@@ -30,6 +30,7 @@ public class BankServiceImplTest {
     private BankService bankService;
 
     private BankAccount basicAccount;
+    private BankAccount basicAccountTO;
     private BankAccount debitAccount;
     private List<BankAccount> bankAccountList = new ArrayList<>();
 
@@ -37,6 +38,7 @@ public class BankServiceImplTest {
     public void setUp(){
         BankHub bankHub = new BankHub();
         basicAccount = new BasicBankAccount("Ala", 1000, bankHub);
+        basicAccountTO = new BasicBankAccount("Ala1", 1000, bankHub);
         debitAccount = new DebitAccount(new BasicBankAccount("Ala2",1000, bankHub));
 
         bankAccountList.add(basicAccount);
@@ -93,12 +95,11 @@ public class BankServiceImplTest {
 
     @Test
     public void shouldTransferToAccountBalance(){
-        Transfer transferCommand = new Transfer(basicAccount,350);
+        Transfer transferCommand = new Transfer(basicAccount,basicAccountTO,350);
         BankExecutor makePayment = new BankExecutor(transferCommand);
         makePayment.makeOperation();
-        // a jak sprawdzić te drugie konto z ktorego przelewamy, powinno miec stan konta =  750.0
-        assertThat(basicAccount.getBalance(), equalTo(1350.0));
-        assertThat(basicAccount.getBalance(), equalTo(1350.0));
+        assertThat(basicAccount.getBalance(), equalTo(650.0));
+        assertThat(basicAccountTO.getBalance(), equalTo(1350.0));
 
 
     }
