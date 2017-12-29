@@ -1,6 +1,5 @@
 package Bank.Command;
 
-
 import Bank.Command.Interface.BankCommand;
 import Bank.Command.Interface.BankOperation;
 
@@ -14,6 +13,6 @@ public class OpenDebit implements BankCommand {
 
     @Override
     public void execute() {
-       // bankOperation.openDebit();
+        // bankOperation.openDebit();
     }
 }

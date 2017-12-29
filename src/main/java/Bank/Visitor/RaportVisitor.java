@@ -9,7 +9,7 @@ public class RaportVisitor implements Visitor {
 
     private int exist;
 
-    public RaportVisitor() {};
+    public RaportVisitor() {}
 
     @Override
     public int visit(BankService bankService) {

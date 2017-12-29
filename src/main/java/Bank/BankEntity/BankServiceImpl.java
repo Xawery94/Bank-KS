@@ -31,15 +31,10 @@ public class BankServiceImpl implements BankService, Visitable {
         accounts = bank.getAccounts();
         for (int i = 0; i < numOfAccounts; i++) {
             if (accountNum == accounts[i].getAccountNum()) {
-                accounts[i].transfer((-amount)); // odejmuje z pierwszego konta
+                accounts[i].transfer((-amount));
                 logger.info("Amount transfer successfully");
                 return;
             }
-//            if (accountNumTO == accounts[i].getAccountNum()) {
-//                accounts[i].transfer(amount); // dodaje z pierwszego konta -> nie dziala w testach
-//                logger.info("Amount transfer successfully");
-//                return;
-//            }
         }
         logger.warn("Account number not found.");
         System.out.println("Przelano na konto" + this.numOfAccounts);
@@ -110,7 +105,8 @@ public class BankServiceImpl implements BankService, Visitable {
         for (int i = 0; i < numOfAccounts; i++) {
             if (accountNum == accounts[i].getAccountNum()) {
                 logger.info(accounts[i].getAccountInfo());
-                logger.info("Last transaction: " + accounts[i].getTransactionInfo(accounts[i].getNumberOfTransactions() - 1));
+                logger.info("Last transaction: " +
+                        accounts[i].getTransactionInfo(accounts[i].getNumberOfTransactions() - 1));
                 return;
             }
         }

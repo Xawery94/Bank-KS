@@ -1,7 +1,6 @@
 package Bank.Decorator;
 
 import Bank.Exception.MinAmount;
-import Bank.Decorator.BasicBankAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

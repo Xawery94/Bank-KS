@@ -99,9 +99,8 @@ public class BankServiceImplTest {
         BankExecutor makePayment = new BankExecutor(transferCommand);
         makePayment.makeOperation();
         assertThat(basicAccount.getBalance(), equalTo(650.0));
-        assertThat(basicAccountTO.getBalance(), equalTo(1350.0));
-
-
+        assertEquals(650.0, basicAccount.getBalance(),1);
+        assertEquals(1350.00, basicAccountTO.getBalance(),1);
     }
 
     @Test(expected = MinAmount.class)

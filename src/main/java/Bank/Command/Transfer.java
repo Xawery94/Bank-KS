@@ -1,15 +1,13 @@
 package Bank.Command;
 
-
 import Bank.Command.Interface.BankCommand;
 import Bank.Command.Interface.BankOperation;
-import Bank.Decorator.BankAccount;
 
 public class Transfer implements BankCommand {
 
-    BankOperation bankOperation;
-    BankOperation bankOperationTO; // nie powinno tak byc
-    double amount;
+    private BankOperation bankOperation;
+    private BankOperation bankOperationTO; // need to improve
+    private double amount;
 
     public Transfer(BankOperation bankOperation, BankOperation bankOperationTO, double amount) {
         this.bankOperation = bankOperation;

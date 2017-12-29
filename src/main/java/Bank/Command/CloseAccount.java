@@ -1,6 +1,5 @@
 package Bank.Command;
 
-
 import Bank.Command.Interface.BankCommand;
 import Bank.Command.Interface.BankOperation;
 
