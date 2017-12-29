@@ -29,24 +29,20 @@ public class BankServiceImpl implements BankService, Visitable {
     @Override
     public void transfer(int accountNum,int accountNumTO, double amount) {
         accounts = bank.getAccounts();
-
         for (int i = 0; i < numOfAccounts; i++) {
             if (accountNum == accounts[i].getAccountNum()) {
                 accounts[i].transfer((-amount)); // odejmuje z pierwszego konta
-
                 logger.info("Amount transfer successfully");
                 return;
             }
-            if (accountNumTO == accounts[i].getAccountNum()) {
-                accounts[i].transfer(amount); // dodaje z pierwszego konta
-
-                logger.info("Amount transfer successfully");
-                return;
-            }
-
+//            if (accountNumTO == accounts[i].getAccountNum()) {
+//                accounts[i].transfer(amount); // dodaje z pierwszego konta -> nie dziala w testach
+//                logger.info("Amount transfer successfully");
+//                return;
+//            }
         }
         logger.warn("Account number not found.");
-        //System.out.println("Przelano na konto" + this.numOfAccounts);
+        System.out.println("Przelano na konto" + this.numOfAccounts);
     }
 
     @Override

@@ -97,13 +97,11 @@ public class BasicBankAccount implements BankAccount {
 
     @Override
     public void transfer(double amount) {
-        // kwota, konto1, konto2
-        if (amount <= 0) {
-            logger.warn("Amount to be deposited should be positive");
-            throw new MinAmount();
-        } else {
-            balance = balance + amount;
-        }
+//         kwota, konto1, konto2
+        balance = balance + amount;
+        transactions[numOfTransactions] = amount;
+        transactionsSummary[numOfTransactions] = "zł" + Double.toString(amount) + " was withdrawn.";
+        numOfTransactions++;
         logger.info("Przelano: {}zł", ammount);
     }
 

@@ -1,3 +1,16 @@
+import Bank.BankMediator.BankHub;
+import Bank.Decorator.BasicBankAccount;
+import Bank.Command.Interface.BankOperation;
+import Bank.Command.Transfer;
+import Bank.Command.Deposit;
+import Bank.Command.Withdraw;
+import Bank.Command.BankExecutor;
+import Bank.Command.CloseAccount;
+import Bank.Command.OpenDebit;
+import Bank.Decorator.BasicBankAccount;
+import Bank.BankMediator.Mediator;
+
+
 import org.apache.log4j.BasicConfigurator;
 
 public class Main {
@@ -47,28 +60,31 @@ public class Main {
 
 
         //TODO Command
-        BankOperation account = new BasicBankAccount("aa",100);
-        BasicBankAccount basicBankAccount = new BasicBankAccount("aa",100);
 
-        Withdraw withdrawCommand = new Withdraw(account,500);
-        BankExecutor makeWithdraw = new BankExecutor(withdrawCommand);
-        makeWithdraw.makeOperation();
+        BankHub bankHub = new BankHub();
+        BankOperation account = new BasicBankAccount("aa",1000,bankHub);
+        BankOperation accountTO = new BasicBankAccount("aa",1000,bankHub);
+        BasicBankAccount basicBankAccount = new BasicBankAccount("aa",1000,bankHub);
 
-        Deposit depositCommand2 = new Deposit(account,1000);
-        BankExecutor makePayment2 = new BankExecutor(depositCommand2);
-        makePayment2.makeOperation();
+//        Withdraw withdrawCommand = new Withdraw(account,500);
+//        BankExecutor makeWithdraw = new BankExecutor(withdrawCommand);
+//        makeWithdraw.makeOperation();
+//
+//        Deposit depositCommand2 = new Deposit(account,1000);
+//        BankExecutor makePayment2 = new BankExecutor(depositCommand2);
+//        makePayment2.makeOperation();
 
-        Transfer transferCommand = new Transfer(account);
+        Transfer transferCommand = new Transfer(account,accountTO,250);
         BankExecutor makeTransfer = new BankExecutor(transferCommand);
         makeTransfer.makeOperation();
 
-        CloseAccount closeAccountCommand = new CloseAccount(account, 0);
-        BankExecutor closeBankAccount = new BankExecutor(closeAccountCommand);
-        closeBankAccount.makeOperation();
-
-        OpenDebit openDebitCommand2 = new OpenDebit(account);
-        BankExecutor openDebit2 = new BankExecutor(openDebitCommand2);
-        openDebit2.makeOperation();
+//        CloseAccount closeAccountCommand = new CloseAccount(account, 0);
+//        BankExecutor closeBankAccount = new BankExecutor(closeAccountCommand);
+//        closeBankAccount.makeOperation();
+//
+//        OpenDebit openDebitCommand2 = new OpenDebit(account);
+//        BankExecutor openDebit2 = new BankExecutor(openDebitCommand2);
+//        openDebit2.makeOperation();
 */
     }
 }
