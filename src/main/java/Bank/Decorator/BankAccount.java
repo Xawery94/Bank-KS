@@ -11,4 +11,10 @@ public interface BankAccount extends BankOperation {
 
     void sendMessage(String message);
 
+    double[] getTransactions();
+
+    int getNumberOfTransactions();
+
+    String[] getTransactionsSummary();
+
 }

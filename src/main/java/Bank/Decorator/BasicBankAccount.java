@@ -132,4 +132,12 @@ public class BasicBankAccount implements BankAccount {
     public int getNumberOfTransactions() {
         return numOfTransactions;
     }
+
+    public double[] getTransactions() {
+        return transactions;
+    }
+
+    public String[] getTransactionsSummary() {
+        return transactionsSummary;
+    }
 }

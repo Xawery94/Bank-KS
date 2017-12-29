@@ -1,5 +1,7 @@
 package Bank.Decorator;
 
+import Bank.Exception.MinAmount;
+import Bank.Decorator.BasicBankAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,6 +11,10 @@ public class DebitAccount extends BankAccountDecorator {
 
     private double amount = 155.00;
     private double debitLimit = 200;
+    private double BalancePlusDebitLimit = getBalance();
+    private int numOfTransactions = getNumberOfTransactions();
+    private double[] transactions = getTransactions();
+    private String[] transactionsSummary = getTransactionsSummary();
 
     public DebitAccount(BankAccount bankAccount) {
         super(bankAccount);
@@ -21,7 +27,22 @@ public class DebitAccount extends BankAccountDecorator {
 
     @Override
     public double getBalance() {
-        return tempBankAccount.getBalance() + 200;
+        return tempBankAccount.getBalance() + debitLimit;
+    }
+
+    @Override
+    public double[] getTransactions() {
+        return transactions;
+    }
+
+    @Override
+    public int getNumberOfTransactions() {
+        return numOfTransactions;
+    }
+
+    @Override
+    public String[] getTransactionsSummary() {
+        return transactionsSummary;
     }
 
     @Override
@@ -40,11 +61,37 @@ public class DebitAccount extends BankAccountDecorator {
 
     @Override
     public void withdraw(double amount) {
+        if (amount <= 0) {
+            logger.warn("Amount to be withdrawn should be positive");
+            throw new MinAmount();
+        } else {
+            if (getBalance() < amount) { //getBalance == BalancePlusDebitLimit -> aby nie wyrzucało duplikatu
+                logger.warn("Insufficient balance");
+            } else {
+                BalancePlusDebitLimit = BalancePlusDebitLimit - amount;
+                transactions[numOfTransactions] = amount;
+                transactionsSummary[numOfTransactions] = "zł" + Double.toString(amount) + " was withdrawn.";
+                numOfTransactions++;
+            }
+        }
         logger.info("Wypłacono: {}zł", this.amount);
     }
 
     @Override
     public void deposit(double amount) {
+        if (amount <= 0) {
+            logger.warn("Amount to be withdrawn should be positive");
+            throw new MinAmount();
+        } else {
+            if (getBalance() < amount) { //getBalance == BalancePlusDebitLimit -> aby nie wyrzucało duplikatu
+                logger.warn("Insufficient balance");
+            } else {
+                BalancePlusDebitLimit = BalancePlusDebitLimit + amount;
+                transactions[numOfTransactions] = amount;
+                transactionsSummary[numOfTransactions] = "zł" + Double.toString(amount) + " was withdrawn.";
+                numOfTransactions++;
+            }
+        }
         logger.info("Wpłacono: {}zł", this.amount);
     }
 

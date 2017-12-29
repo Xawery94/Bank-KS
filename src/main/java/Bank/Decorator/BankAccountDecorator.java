@@ -11,4 +11,8 @@ abstract class BankAccountDecorator implements BankAccount {
     public String getDescription() {
         return tempBankAccount.getDescription();
     }
+    public double getBalance() {
+        return tempBankAccount.getBalance();
+    }
+
 }

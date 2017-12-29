@@ -98,6 +98,9 @@ public class BankServiceImplTest {
         makePayment.makeOperation();
         // a jak sprawdzić te drugie konto z ktorego przelewamy, powinno miec stan konta =  750.0
         assertThat(basicAccount.getBalance(), equalTo(1350.0));
+        assertThat(basicAccount.getBalance(), equalTo(1350.0));
+
+
     }
 
     @Test(expected = MinAmount.class)
