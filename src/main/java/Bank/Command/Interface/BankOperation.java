@@ -2,7 +2,7 @@ package Bank.Command.Interface;
 
 public interface BankOperation {
 
-    void transfer();        //przelew
+    void transfer(double amount);        //przelew
 
     void withdraw(double amount);        //wypłata
 

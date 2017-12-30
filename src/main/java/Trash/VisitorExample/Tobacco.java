@@ -1,6 +1,6 @@
 package Trash.VisitorExample;
 
-public class Tobacco implements Visitable{
+public class Tobacco implements TabacoServ,Visitable{
 
     private double price;
 
@@ -13,6 +13,7 @@ public class Tobacco implements Visitable{
         return visitor.visit(this);
     }
 
+    @Override
     public double getPrice() {
         return price;
     }

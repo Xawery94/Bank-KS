@@ -5,7 +5,7 @@ import Bank.Command.Interface.BankCommand;
 
 public class BankExecutor {
 
-    BankCommand theBankCommand;
+    private BankCommand theBankCommand;
 
     public BankExecutor(BankCommand theBankCommand) {
         this.theBankCommand = theBankCommand;

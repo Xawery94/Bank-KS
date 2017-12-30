@@ -1,19 +1,20 @@
 package Bank.Command;
 
-
 import Bank.Command.Interface.BankCommand;
 import Bank.Command.Interface.BankOperation;
 
 public class Withdraw implements BankCommand {
 
-    BankOperation bankOperation;
+    private BankOperation bankOperation;
+    private double amount;
 
-    public Withdraw(BankOperation bankOperation) {
+    public Withdraw(BankOperation bankOperation, double amount) {
         this.bankOperation = bankOperation;
+        this.amount = amount;
     }
 
     @Override
     public void execute() {
-      //  bankOperation.withdraw();
+        bankOperation.withdraw(amount);
     }
 }

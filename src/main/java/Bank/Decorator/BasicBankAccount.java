@@ -2,6 +2,7 @@ package Bank.Decorator;
 
 import Bank.BankEntity.BankService;
 import Bank.BankEntity.BankServiceImpl;
+import Bank.BankMediator.Mediator;
 import Bank.Exception.MinAmount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,6 @@ public class BasicBankAccount implements BankAccount {
 
     BankService bankService = new BankServiceImpl();
 
-    private int accountNumber;
     private double balance;
     private int accountNum;
     private String customerName;
@@ -22,13 +22,15 @@ public class BasicBankAccount implements BankAccount {
     private String[] transactionsSummary;
     private int numOfTransactions;
     private static int noOfAccounts = 0;
+    private Mediator mediator;
 
     private Random rnd = new Random();
-    double ammount = 100.00;
+    private double ammount = 100.00;
 
-    public BasicBankAccount(String newCustomerName, double openingBalance) {
+    public BasicBankAccount(String newCustomerName, double openingBalance, Mediator mediator) {
         customerName = newCustomerName;
         balance = openingBalance;
+        this.mediator = mediator;
         noOfAccounts++;
         accountNum = noOfAccounts;
         transactions = new double[100];
@@ -36,6 +38,21 @@ public class BasicBankAccount implements BankAccount {
         transactions[0] = balance;
         transactionsSummary[0] = "A balance of: " + Double.toString(balance) + "zł was deposited.";
         numOfTransactions = 1;
+    }
+
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public void sendMessage(String message) {
+        System.out.println("Bla bla: "+ message);
+    }
+
+    @Override
+    public String getDescription() {
+        return "Basic Bank Account";
     }
 
     @Override
@@ -53,6 +70,7 @@ public class BasicBankAccount implements BankAccount {
                 numOfTransactions++;
             }
         }
+
         logger.info("Wypłacono: {}zł", ammount);
     }
 
@@ -60,6 +78,7 @@ public class BasicBankAccount implements BankAccount {
     public void deposit(double amount) {
         if (amount <= 0) {
             logger.warn("Amount to be deposited should be positive");
+            throw new MinAmount();
         } else {
             balance = balance + amount;
             transactions[numOfTransactions] = amount;
@@ -77,22 +96,18 @@ public class BasicBankAccount implements BankAccount {
     }
 
     @Override
-    public String getDescription() {
-        return "Basic Bank Account";
-    }
-
-    @Override
-    public void transfer() {
+    public void transfer(double amount) {
+//         kwota, konto1, konto2
+        balance = balance + amount;
+        transactions[numOfTransactions] = amount;
+        transactionsSummary[numOfTransactions] = "zł" + Double.toString(amount) + " was withdrawn.";
+        numOfTransactions++;
         logger.info("Przelano: {}zł", ammount);
     }
 
     @Override
     public void openDebit(int accountNumber) {
         logger.info("Otwarto debet na koncie");
-    }
-
-    public int getAccountNumber() {
-        return accountNumber;
     }
 
     public String getAccountInfo() {
@@ -116,7 +131,11 @@ public class BasicBankAccount implements BankAccount {
         return numOfTransactions;
     }
 
-    public double getBalance() {
-        return balance;
+    public double[] getTransactions() {
+        return transactions;
+    }
+
+    public String[] getTransactionsSummary() {
+        return transactionsSummary;
     }
 }

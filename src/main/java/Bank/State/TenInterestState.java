@@ -18,9 +18,8 @@ public class TenInterestState implements InterestState {
         double day = interest.getDuration()*30/365;
         double zysk = (basicBankAccount.getBalance()  * interestPercent / day);
         return zysk;
-//        zysk = x * (p / 100_ * (d / 365)
-//        gdzie x to kwota lokaty, p –oprocentowanie, a d –czas trwania lokaty wyrażony w dniach.
     }
+
     @Override
     public Interest getInterest() {
         return interest;
