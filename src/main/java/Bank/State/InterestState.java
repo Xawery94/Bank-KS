@@ -1,14 +1,13 @@
 package Bank.State;
 
+import java.math.BigDecimal;
+
 public interface InterestState {
 
-    double calculate();
-
-    Interest getInterest();
+    BigDecimal calculate();
 
     double breakInterest();
 
-    double closeInterest();
-
+    BigDecimal closeInterest();
 
 }

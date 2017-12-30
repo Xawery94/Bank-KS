@@ -9,19 +9,20 @@ public class Interest {
     private int duration;
     private double balance;
 
-    public Interest(double balance, int duration) {
+    Interest(double balance, int duration) {
+        this.balance = balance;
+        this.duration = duration;
         this.setInterest(balance);
         this.startDate = new Date();
-        this.duration = duration;
     }
 
     public void setInterest(double balance) {
         this.balance = balance;
 
         if(balance < 1000){
-            interestState = new FiveInterestState();
+            interestState = new FiveInterestState(this.getDuration(), this.getBalance());
         }else{
-            interestState = new TenInterestState();
+            this.interestState = new TenInterestState(this.getDuration(), this.getBalance());
         }
     }
 

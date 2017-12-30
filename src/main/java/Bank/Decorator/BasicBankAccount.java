@@ -7,8 +7,6 @@ import Bank.Exception.MinAmount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
-
 public class BasicBankAccount implements BankAccount {
 
     private static final Logger logger = LoggerFactory.getLogger(BasicBankAccount.class);
@@ -24,9 +22,6 @@ public class BasicBankAccount implements BankAccount {
     private static int noOfAccounts = 0;
     private Mediator mediator;
 
-    private Random rnd = new Random();
-    private double ammount = 100.00;
-
     public BasicBankAccount(String newCustomerName, double openingBalance, Mediator mediator) {
         customerName = newCustomerName;
         balance = openingBalance;
@@ -40,6 +35,8 @@ public class BasicBankAccount implements BankAccount {
         numOfTransactions = 1;
     }
 
+    public BasicBankAccount(){}
+
     @Override
     public double getBalance() {
         return balance;
@@ -47,7 +44,7 @@ public class BasicBankAccount implements BankAccount {
 
     @Override
     public void sendMessage(String message) {
-        System.out.println("Bla bla: "+ message);
+        System.out.println("Bla bla: " + message);
     }
 
     @Override
@@ -70,8 +67,6 @@ public class BasicBankAccount implements BankAccount {
                 numOfTransactions++;
             }
         }
-
-        logger.info("Wypłacono: {}zł", ammount);
     }
 
     @Override
@@ -85,8 +80,6 @@ public class BasicBankAccount implements BankAccount {
             transactionsSummary[numOfTransactions] = "zł" + Double.toString(amount) + " was deposited.";
             numOfTransactions++;
         }
-
-        logger.info("Deposited: {}zł", ammount);
     }
 
     @Override
@@ -97,12 +90,10 @@ public class BasicBankAccount implements BankAccount {
 
     @Override
     public void transfer(double amount) {
-//         kwota, konto1, konto2
         balance = balance + amount;
         transactions[numOfTransactions] = amount;
         transactionsSummary[numOfTransactions] = "zł" + Double.toString(amount) + " was withdrawn.";
         numOfTransactions++;
-        logger.info("Przelano: {}zł", ammount);
     }
 
     @Override

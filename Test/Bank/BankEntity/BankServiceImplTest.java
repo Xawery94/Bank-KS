@@ -84,6 +84,13 @@ public class BankServiceImplTest {
         assertThat(basicAccount.getBalance(), equalTo(500.00));
     }
 
+    @Test(expected = MinAmount.class)
+    public void shouldThrowExceptionWhenWithdrawFromAccount(){
+        Withdraw withdrawCommand = new Withdraw(basicAccount, -100);
+        BankExecutor makeWithdraw = new BankExecutor(withdrawCommand);
+        makeWithdraw.makeOperation();
+    }
+
     @Test
     public void shouldDepositToAccountBalance(){
         Deposit depositCommand = new Deposit(basicAccount, 1000);
@@ -91,6 +98,13 @@ public class BankServiceImplTest {
         makePayment.makeOperation();
 
         assertThat(basicAccount.getBalance(), equalTo(2000.0));
+    }
+
+    @Test(expected = MinAmount.class)
+    public void shouldThrowExceptionWhenDepositToAccountBalance(){
+        Deposit depositCommand = new Deposit(basicAccount, -1000);
+        BankExecutor makePayment = new BankExecutor(depositCommand);
+        makePayment.makeOperation();
     }
 
     @Test
