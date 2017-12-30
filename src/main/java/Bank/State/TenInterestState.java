@@ -23,9 +23,9 @@ public class TenInterestState implements InterestState {
     public BigDecimal calculate() {
         logger.info("Oprocentowanie o wysokości 10%");
 
-        double interestPercent = 0.1;
+        double interestPercent = 0.10;
         int day = duration;
-        zysk = BigDecimal.valueOf((amount  * interestPercent / day));
+        zysk = BigDecimal.valueOf((amount  * interestPercent * day / 365));
         zysk = zysk.setScale(2, RoundingMode.CEILING);
         return zysk;
     }

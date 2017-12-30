@@ -37,8 +37,8 @@ public class TenInterestStateTest {
     @Test
     public void shouldReturnCorrectValueWhenCalculateInterest() {
         interest.calculateInterest();
-        when(tenInterestState.calculate()).thenReturn(BigDecimal.valueOf(1.67));
+        when(tenInterestState.calculate()).thenReturn(BigDecimal.valueOf(16.43));
 
-        assertEquals(BigDecimal.valueOf(1.67),tenInterestState.calculate());
+        assertEquals(BigDecimal.valueOf(16.43),tenInterestState.calculate());
     }
 }

@@ -23,9 +23,9 @@ public class FiveInterestState implements InterestState {
     public BigDecimal calculate() {
         logger.info("Oprocentowanie o wysokości 5%");
 
-        double interestPercent = 0.1;
+        double interestPercent = 0.05;
         int day = duration;
-        zysk = BigDecimal.valueOf((amount  * interestPercent / day));
+        zysk = BigDecimal.valueOf((amount  * interestPercent * day / 365));
         zysk = zysk.setScale(2, RoundingMode.CEILING);
         return zysk;
     }

@@ -37,8 +37,8 @@ public class FiveInterestStateTest {
     @Test
     public void shouldReturnCorrectValueWhenCalculateInterest() {
         interest.calculateInterest();
-        when(fiveInterestState.calculate()).thenReturn(BigDecimal.valueOf(0.89));
+        when(fiveInterestState.calculate()).thenReturn(BigDecimal.valueOf(9.86));
 
-        assertEquals(BigDecimal.valueOf(0.89),fiveInterestState.calculate());
+        assertEquals(BigDecimal.valueOf(9.86),fiveInterestState.calculate());
     }
 }
